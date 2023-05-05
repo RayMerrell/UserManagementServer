@@ -10,16 +10,16 @@ const registerUser = async (req, res) => {
     req.ourUser.passed = true;
     login(req, res);
 
-     const response = {
-       Result: "New user added",
-       ["New User"]: {
-         id: newUser.id,
-         userName: newUser.userName,
-         password: newUser.password,
-         administrator: newUser.administrator,
-      },
-     };
-     res.status(201).json(response);
+    // const response = {
+    //   Result: "New user added",
+    //   ["New User"]: {
+    //     id: newUser.id,
+     //    userName: newUser.userName,
+    //     password: newUser.password,
+    //     administrator: newUser.administrator,
+    //  },
+    // };
+    // res.status(201).json(response);
   } catch (error) {
     console.error(error);
     res.status(501).json({ errorMessage: error.message, error: error });
