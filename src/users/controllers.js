@@ -164,8 +164,8 @@ const getUserList = async (req, res) => {
     //check for weirdness
     if (!userList) throw new Error ("Database communication or no users present error");
     //got data, send to client
-    
-    res.status(200).json({ result: "Success", ["List of users"]: userList });
+    console.log("userList", userList);
+    res.status(200).json({ result: "Success", userList: userList });
   } catch (error) {
     console.error(error);
     res.status(501).json({ errorMessage: error.message, error: error });

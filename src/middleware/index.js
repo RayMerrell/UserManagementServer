@@ -95,6 +95,13 @@ const permissionsCheck = async (req, res, next) => {
     ) {
       req.permissionsCheck = true;
     }
+    console.log("requestedUser", req.requestedUser, "current user", req.currentUser.id);
+    if (
+      req.body.requestedUser &&
+      req.body.requestedUser == req.currentUser.id
+    ) {
+      req.permissionsCheck = true;
+    }
     next();
   } catch (error) {
     console.error(
